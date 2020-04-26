@@ -106,6 +106,5 @@ dist
 # .DS_Store
 .DS_Store
 
-
 # Database Config
 database/config.js
