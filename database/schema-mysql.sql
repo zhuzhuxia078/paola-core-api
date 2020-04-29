@@ -21,7 +21,7 @@ CREATE TABLE `pings` (
 
 DROP TABLE IF EXISTS `cohorts`;
 CREATE TABLE `cohorts` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `prefix` VARCHAR(255) NOT NULL,
   `start_date` DATE NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `cohorts` (
 
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
   `cohort_id` INTEGER NULL DEFAULT NULL,
   `deadlines_id` INTEGER NULL DEFAULT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `students` (
 
 DROP TABLE IF EXISTS `deadlines`;
 CREATE TABLE `deadlines` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `group_name` VARCHAR(255) NOT NULL,
   `enrollment_window_start_date` DATE NOT NULL,
   `enrollment_window_end_date` DATE NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `deadlines` (
 
 DROP TABLE IF EXISTS `enrollment_staff`;
 CREATE TABLE `enrollment_staff` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
   `role` VARCHAR(255) NOT NULL,
@@ -72,12 +72,12 @@ CREATE TABLE `enrollment_staff` (
 
 DROP TABLE IF EXISTS `identity_and_access`;
 CREATE TABLE `identity_and_access` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `github_username` VARCHAR(255) NULL DEFAULT NULL,
   `google_group_email` VARCHAR(255) NULL DEFAULT NULL,
   `learn_username` VARCHAR(255) NULL DEFAULT NULL,
   `learn_user_id` INTEGER NULL DEFAULT NULL,
-  `slack_username` VARCHAR NULL DEFAULT NULL,
+  `slack_username` VARCHAR(255) NULL DEFAULT NULL,
   `slack_user_id` INTEGER NULL DEFAULT NULL,
   `has_github_access` TINYINT(1) NOT NULL DEFAULT 0,
   `has_learn_access` TINYINT(1) NOT NULL DEFAULT 0,
@@ -89,7 +89,7 @@ CREATE TABLE `identity_and_access` (
 
 DROP TABLE IF EXISTS `precourse_staff`;
 CREATE TABLE `precourse_staff` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
   `role` VARCHAR(255) NOT NULL,
@@ -102,14 +102,14 @@ CREATE TABLE `precourse_staff` (
 
 DROP TABLE IF EXISTS `system_logs`;
 CREATE TABLE `system_logs` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `event_type` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
 DROP TABLE IF EXISTS `chat_bot_logs`;
 CREATE TABLE `chat_bot_logs` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `event_type` VARCHAR(255) NOT NULL,
   `sent_to` VARCHAR(255) NOT NULL,
   `sent_from` VARCHAR(255) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `chat_bot_logs` (
 
 DROP TABLE IF EXISTS `entry_questionnaire_responses`;
 CREATE TABLE `entry_questionnaire_responses` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `first_name_legal` VARCHAR(255) NOT NULL,
   `first_name_preferred` VARCHAR(255) NOT NULL,
   `last_name` VARCHAR(255) NOT NULL,
@@ -158,16 +158,16 @@ CREATE TABLE `entry_questionnaire_responses` (
   `primary_motivation_to_attend_hr` VARCHAR(2083) NOT NULL,
   `personal_strengths` MEDIUMTEXT NOT NULL,
   `personal_growth_areas` MEDIUMTEXT NOT NULL,
-  `biggest_foreseen_challenges_at_hr` VARCHAR NOT NULL,
+  `biggest_foreseen_challenges_at_hr` MEDIUMTEXT NOT NULL,
   `best_motivation_source` MEDIUMTEXT NOT NULL,
-  `misc_info_impacting_student_status_or_outcomes` INTEGER NULL DEFAULT NULL,
+  `misc_info_impacting_student_status_or_outcomes` MEDIUMTEXT NULL DEFAULT NULL,
   `student_id` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
 );
 
 DROP TABLE IF EXISTS `campuses`;
 CREATE TABLE `campuses` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `short_name` VARCHAR(255) NOT NULL,
   `long_name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -175,7 +175,7 @@ CREATE TABLE `campuses` (
 
 DROP TABLE IF EXISTS `campuses_enrollment_staff`;
 CREATE TABLE `campuses_enrollment_staff` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `campus_id` INTEGER NOT NULL,
   `enrollment_staff_id` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
@@ -183,7 +183,7 @@ CREATE TABLE `campuses_enrollment_staff` (
 
 DROP TABLE IF EXISTS `cohorts_precourse_staff`;
 CREATE TABLE `cohorts_precourse_staff` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `cohort_id` INTEGER NOT NULL,
   `precourse_staff_id` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
@@ -191,7 +191,7 @@ CREATE TABLE `cohorts_precourse_staff` (
 
 DROP TABLE IF EXISTS `assignment_completion`;
 CREATE TABLE `assignment_completion` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `javascript_koans` INTEGER NULL DEFAULT NULL,
   `testbuilder` INTEGER NULL DEFAULT NULL,
   `underbar_part_one` INTEGER NULL DEFAULT NULL,
@@ -206,10 +206,10 @@ CREATE TABLE `assignment_completion` (
 
 DROP TABLE IF EXISTS `assignment_grades`;
 CREATE TABLE `assignment_grades` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `javascript_koans` VARCHAR(255) NULL DEFAULT NULL,
   `testbuilder` VARCHAR(255) NULL DEFAULT NULL,
-  `underbar_part_one` VARCHAR NULL DEFAULT NULL,
+  `underbar_part_one` VARCHAR(255) NULL DEFAULT NULL,
   `underbar_part_two` VARCHAR(255) NULL DEFAULT NULL,
   `underbar_extra_credit` VARCHAR(255) NULL DEFAULT NULL,
   `twiddler` VARCHAR(255) NULL DEFAULT NULL,
@@ -221,7 +221,7 @@ CREATE TABLE `assignment_grades` (
 
 DROP TABLE IF EXISTS `salesforce_records`;
 CREATE TABLE `salesforce_records` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `full_name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `email_secondary` VARCHAR(255) NULL DEFAULT NULL,
@@ -230,7 +230,7 @@ CREATE TABLE `salesforce_records` (
   `course_start_date` VARCHAR(255) NOT NULL,
   `product_code` VARCHAR(255) NOT NULL,
   `separation_status` VARCHAR(255) NULL DEFAULT NULL,
-  `separation_type` VARCHAR NULL DEFAULT NULL,
+  `separation_type` VARCHAR(255) NULL DEFAULT NULL,
   `sfdc_contact_id` VARCHAR(255) NOT NULL,
   `sfdc_opportunity_id` VARCHAR(255) NOT NULL,
   `student_id` INTEGER NOT NULL,
