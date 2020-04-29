@@ -50,7 +50,10 @@ const SystemLog = require('./models/SystemLog')(connection, Sequelize);
 // One-to-One Relationships
 Student.hasOne(AssignmentCompletion);
 Student.hasOne(AssignmentGrades);
+<<<<<<< HEAD
 Student.hasOne(Campus);
+=======
+>>>>>>> c18256e045c1493300946538e687193f029b435b
 Student.hasOne(EntryQuestionnaireResponse);
 Student.hasOne(EntryQuestionnaireResponse);
 Student.hasOne(IdentityAndAccess);
@@ -58,7 +61,10 @@ Student.hasOne(SalesforceRecord);
 Student.hasOne(SalesforceRecord);
 AssignmentCompletion.belongsTo(Student);
 AssignmentGrades.belongsTo(Student);
+<<<<<<< HEAD
 Campus.belongsTo(Student);
+=======
+>>>>>>> c18256e045c1493300946538e687193f029b435b
 EntryQuestionnaireResponse.belongsTo(Student);
 EntryQuestionnaireResponse.belongsTo(Student);
 IdentityAndAccess.belongsTo(Student);
