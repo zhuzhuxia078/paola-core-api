@@ -42,7 +42,6 @@ const EntryQuestionnaireResponse = require('./models/EntryQuestionnaireResponse'
 const IdentityAndAccess = require('./models/IdentityAndAccess')(connection, Sequelize);
 const Ping = require('./models/Ping')(connection, Sequelize);
 const PrecourseStaff = require('./models/PrecourseStaff')(connection, Sequelize);
-const Rating = require('./models/Rating')(connection, Sequelize);
 const SalesforceRecord = require('./models/SalesforceRecord')(connection, Sequelize);
 const Student = require('./models/Student')(connection, Sequelize);
 const SystemLog = require('./models/SystemLog')(connection, Sequelize);
@@ -117,7 +116,6 @@ module.exports = {
   IdentityAndAccess,
   Ping,
   PrecourseStaff,
-  Rating,
   SalesforceRecord,
   Student,
   SystemLog,
