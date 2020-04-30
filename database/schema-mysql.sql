@@ -1,3 +1,5 @@
+DROP DATABASE `paola_v1_dev`;
+CREATE DATABASE `paola_v1_dev`;
 USE `paola_v1_dev`;
 -- ---
 -- Globals
@@ -229,6 +231,7 @@ CREATE TABLE `salesforce_records` (
   `github` VARCHAR(255) NULL DEFAULT NULL,
   `course_start_date` VARCHAR(255) NOT NULL,
   `product_code` VARCHAR(255) NOT NULL,
+  `stage` VARCHAR(255) NOT NULL,
   `separation_status` VARCHAR(255) NULL DEFAULT NULL,
   `separation_type` VARCHAR(255) NULL DEFAULT NULL,
   `sfdc_contact_id` VARCHAR(255) NOT NULL,
@@ -280,7 +283,7 @@ ALTER TABLE `salesforce_records` ADD FOREIGN KEY (student_id) REFERENCES `studen
 -- Test Data
 -- ---
 
-INSERT INTO `pings` (`id`,`message`) VALUES ('1', 'pong');
+-- INSERT INTO `pings` (`id`,`message`) VALUES ('1', 'pong');
 -- INSERT INTO `cohorts` (`id`,`name`,`prefix`,`start_date`,`end_date`,`github_team_name`,`learn_course_id`,`learn_course_name`) VALUES
 -- ('','','','','','','','');
 -- INSERT INTO `students` (`id`,`email`,`cohort_id`,`deadlines_id`,`tech_mentor_id`,`part_one_deadline_extension_date`,`part_two_deadline_extension_date`,`part_three_deadline_extension_date`) VALUES
@@ -309,5 +312,5 @@ INSERT INTO `pings` (`id`,`message`) VALUES ('1', 'pong');
 -- ('','','','','','','','','','');
 -- INSERT INTO `assignment_grades` (`id`,`javascript_koans`,`testbuilder`,`underbar_part_one`,`underbar_part_two`,`underbar_extra_credit`,`twiddler`,`recursion`,`recursion_extra_credit`,`student_id`) VALUES
 -- ('','','','','','','','','','');
--- INSERT INTO `salesforce_records` (`id`,`full_name`,`email`,`email_secondary`,`campus`,`github`,`course_start_date`,`product_code`,`separation_status`,`separation_type`,`sfdc_contact_id`,`sfdc_opportunity_id`,`student_id`) VALUES
--- ('','','','','','','','','','','','','');
+-- INSERT INTO `salesforce_records` (`id`,`full_name`,`email`,`email_secondary`,`campus`,`github`,`course_start_date`,`product_code`,`stage`,`separation_status`,`separation_type`,`sfdc_contact_id`,`sfdc_opportunity_id`,`student_id`) VALUES
+-- ('','','','','','','','','','','','','','');

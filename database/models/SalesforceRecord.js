@@ -42,6 +42,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'product_code',
     },
+    stage: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'stage',
+    },
     separationStatus: {
       type: DataTypes.STRING(255),
       allowNull: true,
