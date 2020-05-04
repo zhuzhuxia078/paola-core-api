@@ -1,4 +1,4 @@
-const { Ping } = require('../');
+const { Ping } = require('..');
 
 module.exports = {
   pings: {
@@ -27,6 +27,6 @@ module.exports = {
     },
     delete: (req, res) => {
       res.status(405).send('Method not allowed.');
-    }
+    },
   },
 };
