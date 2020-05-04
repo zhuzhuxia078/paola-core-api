@@ -2,14 +2,14 @@ const Sequelize = require('sequelize');
 const {
   DB_HOST,
   DB_NAME,
-  // DB_PORT,
+  DB_PORT,
   DB_USERNAME,
   DB_PASSWORD,
 } = require('./config');
 
 const connection = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
   host: DB_HOST,
-  // port: DB_PORT,
+  port: DB_PORT,
   dialect: 'mysql',
   logging: false,
   pool: {

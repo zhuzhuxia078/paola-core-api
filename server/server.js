@@ -18,4 +18,11 @@ app.get('/ping', (req, res) => {
   res.json('pong');
 });
 
+app.post('/ping', (req, res) => {
+  const { challenge } = req.body;
+  res.setHeader('content-type', 'application/json');
+  res.status(200);
+  res.json({ challenge });
+});
+
 module.exports = app;

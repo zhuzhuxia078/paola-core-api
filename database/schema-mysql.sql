@@ -1,4 +1,4 @@
-DROP DATABASE `paola_v1_dev`;
+DROP DATABASE IF EXISTS `paola_staging_1`;
 CREATE DATABASE `paola_v1_dev`;
 USE `paola_v1_dev`;
 -- ---
