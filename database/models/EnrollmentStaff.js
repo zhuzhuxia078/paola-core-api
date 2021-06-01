@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     slack: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
       field: 'slack',
     },
   }, {

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Deadlines = sequelize.define('deadlines', {
+  const SEIPDeadlines = sequelize.define('seipDeadlines', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -13,27 +13,27 @@ module.exports = (sequelize, DataTypes) => {
       field: 'group_name',
     },
     enrollmentWindowStartDate: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING(255),
       allowNull: false,
       field: 'enrollment_window_start_date',
     },
     enrollmentWindowEndDate: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING(255),
       allowNull: false,
       field: 'enrollment_window_end_date',
     },
     partOne: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING(255),
       allowNull: false,
       field: 'part_one',
     },
     partTwo: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING(255),
       allowNull: false,
       field: 'part_two',
     },
     partThree: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING(255),
       allowNull: false,
       field: 'part_three',
     },
@@ -47,8 +47,8 @@ module.exports = (sequelize, DataTypes) => {
       field: 'cohort_id',
     },
   }, {
-    tableName: 'deadlines',
+    tableName: 'seip_deadlines',
   });
 
-  return Deadlines;
+  return SEIPDeadlines;
 };

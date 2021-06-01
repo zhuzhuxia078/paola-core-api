@@ -7,6 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       field: 'id',
     },
+    cohortType: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'cohort_type',
+    },
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
@@ -32,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'github_team_name',
     },
-    learnCourseId: {
+    learnCourseID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       field: 'learn_course_id',

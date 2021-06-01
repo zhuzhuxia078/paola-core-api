@@ -1,5 +1,6 @@
+// TODO: Complete after work with Isto and Murph is done on Form Upgrades
 module.exports = (sequelize, DataTypes) => {
-  const EntryQuestionnaireResponse = sequelize.define('entryQuestionnaireResponse', {
+  const Student = sequelize.define('student', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -7,10 +8,15 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       field: 'id',
     },
-    firstNameLegal: {
+    fullName: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      field: 'first_name_legal',
+      field: 'full_name',
+    },
+    firstName: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'first_name',
     },
     firstNamePreferred: {
       type: DataTypes.STRING(255),
@@ -32,15 +38,30 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'pronouns',
     },
-    gmailAddress: {
+    email: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      field: 'gmail_address',
+      field: 'email',
     },
-    githubHandle: {
+    github: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      field: 'github_handle',
+      field: 'github',
+    },
+    learnUserID: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'learn_user_id',
+    },
+    sfdcContactID: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'sfdc_contact_id',
+    },
+    profileImageURL: {
+      type: DataTypes.STRING(2083),
+      allowNull: true,
+      field: 'profile_image_url',
     },
     operatingSystem: {
       type: DataTypes.STRING(255),
@@ -63,29 +84,39 @@ module.exports = (sequelize, DataTypes) => {
       field: 'phone_number',
     },
     permanentAddress: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(2083),
       allowNull: false,
       field: 'permanent_address',
     },
     mailingAddress: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
+      type: DataTypes.STRING(2083),
+      allowNull: false,
       field: 'mailing_address',
+    },
+    whileInProgramAddress: {
+      type: DataTypes.STRING(2083),
+      allowNull: true,
+      field: 'while_in_program_address',
     },
     emegencyContactName: {
       type: DataTypes.STRING(255),
       allowNull: false,
       field: 'emegency_contact_name',
     },
+    emegencyContactRelationship: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'emegency_contact_relationship',
+    },
     emergencyContactPhoneNumber: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: true,
       field: 'emergency_contact_phone_number',
     },
-    prepPrecourseExperience: {
+    prepExperience: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      field: 'prep_precourse_experience',
+      field: 'prep_experience',
     },
     targetCampus: {
       type: DataTypes.STRING(255),
@@ -104,7 +135,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     outsideObligations: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       field: 'outside_obligations',
     },
     dietaryRestrictions: {
@@ -116,6 +147,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(255),
       allowNull: false,
       field: 'tshirt_size',
+    },
+    tshirtFit: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      field: 'tshirt_fit',
     },
     hoodySize: {
       type: DataTypes.STRING(255),
@@ -139,7 +175,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     employmentDescription: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       field: 'employment_description',
     },
     educationalEnrollmentStatus: {
@@ -212,18 +248,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       field: 'misc_info_impacting_student_status_or_outcomes',
     },
-    studentId: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      // references: {
-      //   model: 'student',
-      //   key: 'id',
-      // },
-      field: 'student_id',
-    },
   }, {
-    tableName: 'entry_questionnaire_responses',
+    tableName: 'students',
   });
 
-  return EntryQuestionnaireResponse;
+  return Student;
 };
